@@ -105,6 +105,10 @@
       "description": "FPS",
       "widget": "hidden"
     },
+    "prompt_enhance": {
+      "type": "boolean",
+      "description": "Prompt Enhance"
+    },
     "example": {
       "type": "string",
       "image1": "https://files.catbox.moe/oq8d95.mp4",
