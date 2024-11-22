@@ -1,6 +1,6 @@
 {
-    "input_image": "https://files.catbox.moe/dag9vz.jpg",
-    "positive_prompt": "best quality, 4k, HDR, fireworks",
+    "input_image": "https://files.catbox.moe/pidugn.png",
+    "positive_prompt": "best quality, 4k, HDR, an inteview shot person talking",
     "negative_prompt": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
     "frame_rate": 25,
     "sampler_name": "euler",
