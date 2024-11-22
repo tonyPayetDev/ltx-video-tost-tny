@@ -6,10 +6,12 @@ from PIL import Image
 from moviepy.editor import ImageSequenceClip
 import numpy as np
 
-from nodes import NODE_CLASS_MAPPINGS
-import comfy_extras
+from nodes import NODE_CLASS_MAPPINGS, load_custom_node
 from comfy_extras import  nodes_images, nodes_lt, nodes_custom_sampler
 
+load_custom_node("/content/ComfyUI/custom_nodes/ComfyUI-Fluxpromptenhancer")
+
+FluxPromptEnhance = NODE_CLASS_MAPPINGS["FluxPromptEnhance"]()
 CLIPLoader = NODE_CLASS_MAPPINGS["CLIPLoader"]()
 CLIPTextEncode = NODE_CLASS_MAPPINGS["CLIPTextEncode"]()
 CheckpointLoaderSimple = NODE_CLASS_MAPPINGS["CheckpointLoaderSimple"]()
@@ -79,12 +81,16 @@ def generate(input):
     noise_seed = values['noise_seed']
     cfg = values['cfg']
     fps = values['fps']
+    prompt_enhance = values['prompt_enhance']
 
     if noise_seed == 0:
         random.seed(int(time.time()))
         noise_seed = random.randint(0, 18446744073709551615)
     print(noise_seed)
 
+    if prompt_enhance:
+        positive_prompt = FluxPromptEnhance.enhance_prompt(positive_prompt, noise_seed)[0]
+        print(positive_prompt)
     conditioning_positive = CLIPTextEncode.encode(clip, positive_prompt)[0]
     conditioning_negative = CLIPTextEncode.encode(clip, negative_prompt)[0]
     positive, negative = LTXVConditioning.append(conditioning_positive, conditioning_negative, frame_rate)

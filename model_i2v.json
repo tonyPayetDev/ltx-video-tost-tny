@@ -15,5 +15,6 @@
     "add_noise": true,
     "noise_seed": 0,
     "cfg": 3.0,
-    "fps": 24
+    "fps": 24,
+    "prompt_enhance": false
 }
