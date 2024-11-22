@@ -14,5 +14,7 @@ https://www.lightricks.com/ltxv
 
 ### 🖼 Output
 
+https://github.com/user-attachments/assets/662b60cb-a1f9-4f12-a1d7-dd5700ffa699
+
 ### 🏢 Sponsor
 [https://runpod.io](https://runpod.io?ref=iqi9iy8y)
