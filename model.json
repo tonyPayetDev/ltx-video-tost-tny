@@ -1,0 +1,18 @@
+{
+    "positive_prompt": "A woman with long brown hair and light skin smiles at another woman with long blonde hair. The woman with brown hair wears a black jacket and has a small, barely noticeable mole on her right cheek. The camera angle is a close-up, focused on the woman with brown hair's face. The lighting is warm and natural, likely from the setting sun, casting a soft glow on the scene. The scene appears to be real-life footage.",
+    "negative_prompt": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+    "frame_rate": 25,
+    "sampler_name": "euler",
+    "steps": 30,
+    "max_shift": 2.05,
+    "base_shift": 0.95,
+    "stretch": true,
+    "terminal": 0.10,
+    "width": 768,
+    "height": 512,
+    "length": 97,
+    "add_noise": true,
+    "noise_seed": 0,
+    "cfg": 3.0,
+    "fps": 24
+}
