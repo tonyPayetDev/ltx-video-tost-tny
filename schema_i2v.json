@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+  "type": "object",
+  "properties": {
+    "readme": {
+      "type": "string",
+      "title": "LTX-Video",
+      "author": "Lightricks",
+      "code": "https://github.com/Lightricks/LTX-Video",
+      "page": "https://www.lightricks.com/ltxv",
+      "jupyter": "https://github.com/camenduru/ltx-video-tost",
+      "api": "https://github.com/camenduru/tost-api-examples/blob/main/v1/ltx-t2v.ipynb",
+      "tags": [
+        "Text to Video"
+      ],
+      "widget": "readme"
+    },
+    "upload": {
+      "type": "string",
+      "widget": "upload",
+      "upload_url": "https://litterbox.catbox.moe/resources/internals/api.php",
+      "property": "input_image"
+    },
+    "input_image": {
+      "type": "string",
+      "description": "Image URL",
+      "widget": "textarea"
+    },
+    "positive_prompt": {
+      "type": "string",
+      "description": "Positive Prompt",
+      "widget": "textarea"
+    },
+    "negative_prompt": {
+      "type": "string",
+      "description": "Negative Prompt",
+      "widget": "textarea"
+    },
+    "frame_rate": {
+      "type": "integer",
+      "description": "Frame Rate",
+      "widget": "hidden"
+    },
+    "sampler_name": {
+      "type": "string",
+      "description": "Sampler Name",
+      "widget": "hidden"
+    },
+    "steps": {
+      "type": "integer",
+      "description": "Steps",
+      "widget": "hidden"
+    },
+    "max_shift": {
+      "type": "number",
+      "description": "Max Shift",
+      "widget": "hidden"
+    },
+    "base_shift": {
+      "type": "number",
+      "description": "Base shift",
+      "widget": "hidden"
+    },
+    "stretch": {
+      "type": "boolean",
+      "description": "Stretch",
+      "widget": "hidden"
+    },
+    "terminal": {
+      "type": "number",
+      "description": "Terminal",
+      "widget": "hidden"
+    },
+    "width": {
+      "type": "integer",
+      "description": "Width",
+      "widget": "hidden"
+    },
+    "height": {
+      "type": "integer",
+      "description": "Height",
+      "widget": "hidden"
+    },
+    "length": {
+      "type": "integer",
+      "description": "Length",
+      "widget": "hidden"
+    },
+    "add_noise": {
+      "type": "boolean",
+      "description": "Add Noise",
+      "widget": "hidden"
+    },
+    "noise_seed": {
+      "type": "integer",
+      "description": "Noise Seed (if 0 random)"
+    },
+    "cfg": {
+      "type": "number",
+      "description": "CFG",
+      "widget": "hidden"
+    },
+    "fps": {
+      "type": "integer",
+      "description": "FPS",
+      "widget": "hidden"
+    },
+    "example": {
+      "type": "string",
+      "image1": "https://files.catbox.moe/oq8d95.mp4",
+      "image2": "https://files.catbox.moe/rry6zz.mp4",
+      "image3": "https://files.catbox.moe/um6qm7.mp4",
+      "image4": "https://files.catbox.moe/xqg1u3.mp4",
+      "video_aspect_ratio": "67%",
+      "line1": "Video size: 768x512 pixels",
+      "line2": "Video duration: 4 seconds",
+      "widget": "example"
+    }
+  },
+  "buttons": [
+    {
+      "id": "enter",
+      "label": "🥪 Enter"
+    }
+  ]
+}

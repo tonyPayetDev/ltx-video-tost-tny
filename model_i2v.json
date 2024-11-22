@@ -1,0 +1,19 @@
+{
+    "input_image": "https://files.catbox.moe/dag9vz.jpg",
+    "positive_prompt": "best quality, 4k, HDR, fireworks",
+    "negative_prompt": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+    "frame_rate": 25,
+    "sampler_name": "euler",
+    "steps": 30,
+    "max_shift": 2.05,
+    "base_shift": 0.95,
+    "stretch": true,
+    "terminal": 0.10,
+    "width": 768,
+    "height": 512,
+    "length": 97,
+    "add_noise": true,
+    "noise_seed": 0,
+    "cfg": 3.0,
+    "fps": 24
+}
