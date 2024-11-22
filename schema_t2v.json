@@ -72,8 +72,137 @@
     },
     "length": {
       "type": "integer",
-      "description": "Length",
-      "widget": "hidden"
+      "widget": "select",
+      "description": "Length (Frames)",
+      "oneOf": [
+        {
+          "description": "97",
+          "enum": [
+            97
+          ]
+        },
+        {
+          "description": "105",
+          "enum": [
+            105
+          ]
+        },
+        {
+          "description": "113",
+          "enum": [
+            113
+          ]
+        },
+        {
+          "description": "121",
+          "enum": [
+            121
+          ]
+        },
+        {
+          "description": "129",
+          "enum": [
+            129
+          ]
+        },
+        {
+          "description": "137",
+          "enum": [
+            137
+          ]
+        },
+        {
+          "description": "145",
+          "enum": [
+            145
+          ]
+        },
+        {
+          "description": "153",
+          "enum": [
+            153
+          ]
+        },
+        {
+          "description": "161",
+          "enum": [
+            161
+          ]
+        },
+        {
+          "description": "169",
+          "enum": [
+            169
+          ]
+        },
+        {
+          "description": "177",
+          "enum": [
+            177
+          ]
+        },
+        {
+          "description": "185",
+          "enum": [
+            185
+          ]
+        },
+        {
+          "description": "193",
+          "enum": [
+            193
+          ]
+        },
+        {
+          "description": "201",
+          "enum": [
+            201
+          ]
+        },
+        {
+          "description": "209",
+          "enum": [
+            209
+          ]
+        },
+        {
+          "description": "217",
+          "enum": [
+            217
+          ]
+        },
+        {
+          "description": "225",
+          "enum": [
+            225
+          ]
+        },
+        {
+          "description": "233",
+          "enum": [
+            233
+          ]
+        },
+        {
+          "description": "241",
+          "enum": [
+            241
+          ]
+        },
+        {
+          "description": "249",
+          "enum": [
+            249
+          ]
+        },
+        {
+          "description": "257",
+          "enum": [
+            257
+          ]
+        }
+      ],
+      "default": 97
     },
     "add_noise": {
       "type": "boolean",
