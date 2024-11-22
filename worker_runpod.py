@@ -95,8 +95,9 @@ def generate(input):
     images = VAEDecode.decode(vae, samples)[0].detach()
     video = SaveAnimatedWEBP.save_images(images, fps, filename_prefix=f"ltx-video-{noise_seed}-tost", lossless=False, quality=90, method="default")
     source = video['ui']['images'][0]['filename']
+    source = f"/content/ComfyUI/output/{source}"
     destination = f"/content/ltx-video-{noise_seed}-tost.webp"
-    shutil.move(f"/content/ComfyUI/output/{source}", destination)
+    shutil.move(source, destination)
     webp_to_mp4(f"/content/ltx-video-{noise_seed}-tost.webp", f"/content/ltx-video-{noise_seed}-tost.mp4", fps=fps)
     
     result = f"/content/ltx-video-{noise_seed}-tost.mp4"
@@ -154,7 +155,9 @@ def generate(input):
     finally:
         if os.path.exists(result):
             os.remove(result)
-        if os.path.exists(input_image):
-            os.remove(input_image)
+        if os.path.exists(source):
+            os.remove(source)
+        if os.path.exists(destination):
+            os.remove(destination)
 
 runpod.serverless.start({"handler": generate})

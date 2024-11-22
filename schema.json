@@ -96,13 +96,13 @@
     },
     "example": {
       "type": "string",
-      "image1": "https://fakeimg.pl/768x512/282828/eae0d0/?text=input#.png",
-      "image2": "https://files.catbox.moe/xqg1u3.mp4",
-      "image3": "https://fakeimg.pl/768x512/282828/eae0d0/?text=output#.png",
+      "image1": "https://files.catbox.moe/oq8d95.mp4",
+      "image2": "https://files.catbox.moe/rry6zz.mp4",
+      "image3": "https://files.catbox.moe/um6qm7.mp4",
       "image4": "https://files.catbox.moe/xqg1u3.mp4",
       "video_aspect_ratio": "67%",
       "line1": "Video size: 768x512 pixels",
-      "line2": "Video duration: 5 seconds",
+      "line2": "Video duration: 4 seconds",
       "widget": "example"
     }
   },
