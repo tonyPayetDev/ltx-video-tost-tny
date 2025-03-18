@@ -138,7 +138,7 @@ def generate(input):
    
     # Vérification si le fichier existe
     if not os.path.exists(result):
-        return {"status": "FAILED", "error": f"File {video_path} not found"}
+        return {"status": "FAILED", "error": f"File {result} not found"}
 
     try:
         # Upload sur Supabase
@@ -155,8 +155,8 @@ def generate(input):
         return {"status": "FAILED", "error": str(e)}
 
     finally:
-        if os.path.exists(video_path):
-            os.remove(video_path)
+        if os.path.exists(result):  # Remplacer 'video_path' par 'result'
+            os.remove(result)
 
 # Lancement du serveur Runpod
 runpod.serverless.start({"handler": generate})
