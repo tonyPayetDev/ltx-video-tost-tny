@@ -1,37 +1,43 @@
 import os, shutil, json, requests, random, time, runpod
 from urllib.parse import urlsplit
-
 import torch
 from PIL import Image
 from moviepy.editor import ImageSequenceClip
 import numpy as np
+import base64
 
 from nodes import NODE_CLASS_MAPPINGS, load_custom_node
-from comfy_extras import  nodes_images, nodes_lt, nodes_custom_sampler
+from comfy_extras import nodes_images, nodes_lt, nodes_custom_sampler
+
 # Variables de connexion à Supabase 
 SUPABASE_URL = "https://rvsykocedohfdfdvbrfe.supabase.co"
 SUPABASE_API_KEY = "${SUPA_ROLE_TOKEN}"
 SUPABASE_BUCKET = "video"
 
-# Fonction d'envoi de la vidéo à Supabase
-def upload_to_supabase(video_path, file_name):
+# Fonction pour encoder une vidéo en base64
+def encode_video_to_base64(file_path):
+    with open(file_path, "rb") as video_file:
+        video_base64 = base64.b64encode(video_file.read()).decode('utf-8')
+    return video_base64
+
+# Fonction d'envoi de la vidéo encodée à Supabase
+def upload_to_supabase(video_base64, file_name):
     url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{file_name}"
     
     headers = {
         "Authorization": f"Bearer {SUPABASE_API_KEY}",
+        "Content-Type": "application/octet-stream",
     }
-
-    with open(video_path, "rb") as file:
-        files = {"file": file}
-        response = requests.post(url, headers=headers, files=files)
+    
+    # Envoi de la vidéo encodée en base64
+    response = requests.put(url, headers=headers, data=base64.b64decode(video_base64))
 
     if response.status_code == 200:
-        print("Video uploaded successfully!")
+        print("Vidéo uploadée avec succès !")
         return response.json()
     else:
-        print(f"Error uploading video: {response.status_code}, {response.text}")
-        return {"error": response.text} 
-
+        print(f"Erreur lors de l'upload : {response.status_code}, {response.text}")
+        return {"error": response.text}
 
 load_custom_node("/content/ComfyUI/custom_nodes/ComfyUI-Fluxpromptenhancer")
 
@@ -141,9 +147,14 @@ def generate(input):
         return {"status": "FAILED", "error": f"File {result} not found"}
 
     try:
+        # Encoder la vidéo en base64
+        video_base64 = encode_video_to_base64(result)
+
+        # Nom du fichier à sauvegarder sur Supabase
+        file_name = f"ltx-video-{noise_seed}.mp4"
+        
         # Upload sur Supabase
-        file_name = f"ltx-video-{seed}.mp4"
-        upload_response = upload_to_supabase(result, file_name)
+        upload_response = upload_to_supabase(video_base64, file_name)
 
         # Vérification du retour de Supabase
         if "error" in upload_response:
