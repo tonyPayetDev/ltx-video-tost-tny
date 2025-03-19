@@ -4,6 +4,9 @@ WORKDIR /content
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=True
+ENV SUPA_ROLE_TOKEN="${SUPA_ROLE_TOKEN}"
+
+
 ENV PATH="/home/camenduru/.local/bin:/usr/local/cuda/bin:${PATH}"
 
 RUN apt update -y && apt install -y software-properties-common build-essential \
