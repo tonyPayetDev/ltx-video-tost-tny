@@ -11,7 +11,7 @@ from comfy_extras import nodes_images, nodes_lt, nodes_custom_sampler
 
 # Variables de connexion à Supabase 
 SUPABASE_URL = "https://rvsykocedohfdfdvbrfe.supabase.co"
-SUPABASE_API_KEY = "${SUPA_ROLE_TOKEN}"
+SUPABASE_API_KEY = os.getenv("SUPA_ROLE_TOKEN", "default_value")
 SUPABASE_BUCKET = "video"
 
 # Fonction pour encoder une vidéo en base64
